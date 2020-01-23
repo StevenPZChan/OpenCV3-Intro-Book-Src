@@ -1,0 +1,7 @@
+add_subdirectory(【8】彩色目标跟踪/8_彩色目标跟踪)
+add_subdirectory(【9】用光流法进行运动目标检测/9_用光流法进行运动目标检测)
+add_subdirectory(【10】点追踪/10_点追踪)
+add_subdirectory(【11】人脸识别/11_人脸识别)
+add_subdirectory(【12】支持向量机之SVM引导/12_支持向量机之SVM引导)
+add_subdirectory(【13】支持向量机之处理线性不可分数据/13_支持向量机之处理线性不可分数据)
+add_subdirectory(【14】printf函数用法示例/14_printf函数用法示例)

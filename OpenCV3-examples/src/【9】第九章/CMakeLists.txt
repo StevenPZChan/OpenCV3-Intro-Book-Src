@@ -1,0 +1,6 @@
+add_subdirectory(【79】H-S二维直方图的绘制/79_H-S二维直方图的绘制)
+add_subdirectory(【80】一维直方图的绘制/80_一维直方图的绘制)
+add_subdirectory(【81】RGB三色直方图的绘制/81_RGB三色直方图的绘制)
+add_subdirectory(【82】直方图对比/82_直方图对比)
+add_subdirectory(【83】反向投影/83_反向投影)
+add_subdirectory(【84】模板匹配/84_模板匹配)

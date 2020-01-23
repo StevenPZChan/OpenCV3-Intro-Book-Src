@@ -1,0 +1,2 @@
+add_executable(29_Write_XML_and_YAML_File 29_Write_XML_and_YAML_File.cpp)
+target_link_libraries(29_Write_XML_and_YAML_File ${OpenCV_LIBS})

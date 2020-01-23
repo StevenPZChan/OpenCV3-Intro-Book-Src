@@ -1,0 +1,6 @@
+add_executable(61_HoughLines 61_HoughLines.cpp)
+target_link_libraries(61_HoughLines ${OpenCV_LIBS})
+add_custom_command(TARGET 61_HoughLines
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/1.jpg ${EXECUTABLE_OUTPUT_PATH}
+        )

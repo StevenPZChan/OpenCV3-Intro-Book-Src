@@ -1,0 +1,2 @@
+add_executable(74_minEnclosingCircle 74_minEnclosingCircle.cpp)
+target_link_libraries(74_minEnclosingCircle ${OpenCV_LIBS})

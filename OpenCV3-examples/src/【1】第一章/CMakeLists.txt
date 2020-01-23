@@ -1,0 +1,7 @@
+add_subdirectory(【1】OpenCV开发环境的配置/1_HelloOpenCV)
+add_subdirectory(【2】图像显示/2_图像显示)
+add_subdirectory(【3】图像腐蚀/3_图像腐蚀)
+add_subdirectory(【4】blur图像模糊/4_blur图像模糊)
+add_subdirectory(【5】canny边缘检测/5_canny边缘检测)
+add_subdirectory(【6】播放视频/6_播放视频)
+add_subdirectory(【7】调用摄像头/7_调用摄像头)

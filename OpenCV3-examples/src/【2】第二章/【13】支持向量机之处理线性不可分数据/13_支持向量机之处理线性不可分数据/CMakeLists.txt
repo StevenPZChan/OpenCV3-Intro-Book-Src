@@ -1,0 +1,2 @@
+add_executable(13_SVMForNonLinearlySeparableData 13_SVMForNonLinearlySeparableData.cpp)
+target_link_libraries(13_SVMForNonLinearlySeparableData ${OpenCV_LIBS})

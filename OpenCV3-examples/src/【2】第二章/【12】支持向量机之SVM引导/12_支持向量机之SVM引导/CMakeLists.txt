@@ -1,0 +1,2 @@
+add_executable(12_SupportVectorMachines 12_SupportVectorMachines.cpp)
+target_link_libraries(12_SupportVectorMachines ${OpenCV_LIBS})

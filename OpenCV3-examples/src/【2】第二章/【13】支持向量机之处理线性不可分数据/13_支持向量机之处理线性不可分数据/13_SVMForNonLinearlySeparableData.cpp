@@ -91,34 +91,34 @@ int main()
 	trainClass = trainData.rowRange(  nLinearSamples, 2*NTRAINING_SAMPLES-nLinearSamples);
 	// 点的x坐标为[0.4, 0.6)
 	c = trainClass.colRange(0,1);
-	rng.fill(c, RNG::UNIFORM, Scalar(0.4*WIDTH), Scalar(0.6*WIDTH));
-	// 点的y坐标为[0, 1)
-	c = trainClass.colRange(1,2);
-	rng.fill(c, RNG::UNIFORM, Scalar(1), Scalar(HEIGHT));
+  rng.fill(c, RNG::UNIFORM, Scalar(0.4 * WIDTH), Scalar(0.6 * WIDTH));
+  // 点的y坐标为[0, 1)
+  c = trainClass.colRange(1, 2);
+  rng.fill(c, RNG::UNIFORM, Scalar(1), Scalar(HEIGHT));
 
-	//------------------------- 为类设置标签 ---------------------------------
-	labels.rowRange(                0,   NTRAINING_SAMPLES).setTo(1);  // Class 1
-	labels.rowRange(NTRAINING_SAMPLES, 2*NTRAINING_SAMPLES).setTo(2);  // Class 2
+  //------------------------- 为类设置标签 ---------------------------------
+  labels.rowRange(0, NTRAINING_SAMPLES).setTo(1);  // Class 1
+  labels.rowRange(NTRAINING_SAMPLES, 2 * NTRAINING_SAMPLES)
+        .setTo(2);  // Class 2
 
-	//------------------------ 2. 设置支持向量机的参数 --------------------
-	SVM::Params params;
-	params.svmType    = SVM::C_SVC;
-	params.C 		   = 0.1;
-	params.kernelType = SVM::LINEAR;
-	params.termCrit   = TermCriteria(TermCriteria::MAX_ITER, (int)1e7, 1e-6);
+  //------------------------ 2. 设置支持向量机的参数 --------------------
+  Ptr<SVM> svm = SVM::create();
+  svm->setType(SVM::C_SVC);
+  svm->setC(0.1);
+  svm->setKernel(SVM::LINEAR);
+  svm->setTermCriteria(TermCriteria(TermCriteria::MAX_ITER, (int)1e7, 1e-6));
 
-	//------------------------ 3. 训练支持向量机 ----------------------------------------------------
-	cout << "Starting training process" << endl;
-	Ptr<SVM> svm = StatModel::train<SVM>(trainData, ROW_SAMPLE, labels, params);
-	cout << "Finished training process" << endl;
+  //------------------------ 3. 训练支持向量机 ----------------------------------------------------
+  cout << "Starting training process" << endl;
+  svm->train(trainData, ROW_SAMPLE, labels);
+  cout << "Finished training process" << endl;
 
-	//------------------------ 4. 标出决策区域（decision regions）----------------------------------------
-	Vec3b green(0,100,0), blue (100,0,0);
-	for (int i = 0; i < I.rows; ++i)
-		for (int j = 0; j < I.cols; ++j)
-		{
-			Mat sampleMat = (Mat_<float>(1,2) << i, j);
-			float response = svm->predict(sampleMat);
+  //------------------------ 4. 标出决策区域（decision regions）----------------------------------------
+  Vec3b green(0, 100, 0), blue(100, 0, 0);
+  for (int i = 0; i < I.rows; ++i)
+    for (int j = 0; j < I.cols; ++j) {
+      Mat sampleMat = (Mat_<float>(1, 2) << i, j);
+      float response = svm->predict(sampleMat);
 
 			if      (response == 1)    I.at<Vec3b>(j, i)  = green;
 			else if (response == 2)    I.at<Vec3b>(j, i)  = blue;
