@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 2.8)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++14")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_COMPILER "/usr/bin/clang")
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+add_definitions("-Wall -Werror")
+
+project(OpenCV3-examples)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
-
 set(EXECUTABLE_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
 add_subdirectory(src/【1】第一章)
 add_subdirectory(src/【2】第二章)

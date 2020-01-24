@@ -86,14 +86,15 @@ void colorReduce1(Mat &image, int div=64) {
 
           for (int i=0; i<nc; i++) 
 		  {
- 
+
             //-------------开始处理每个像素-------------------
-                 
-				 *data++= *data/div*div + div/2;
- 
+
+            *data = *data / div * div + div / 2;
+            ++data;
+
             //-------------结束像素处理------------------------
- 
-            } //单行处理结束              
+
+          } //单行处理结束
       }
 }
 
@@ -140,13 +141,14 @@ void colorReduce3(Mat &image, int div=64) {
 		  uchar* data= image.ptr<uchar>(j);
 
           for (int i=0; i<nc; i++) {
- 
+
             //------------开始处理每个像素-------------------
-                 
-            *data++= *data&mask + div/2;
- 
+
+            *data = *data & mask + div / 2;
+            ++data;
+
             //-------------结束像素处理------------------------
-            }  //单行处理结束            
+          }  //单行处理结束
       }
 }
 
@@ -199,16 +201,16 @@ void colorReduce5(Mat &image, int div=64) {
 
 		  uchar* data= image.ptr<uchar>(j);
 
-          for (int i=0; i<image.cols * image.channels(); i++) 
-		  {
- 
+          for (int i=0; i<image.cols * image.channels(); i++) {
+
             //-------------开始处理每个像素-------------------
-                 
-            *data++= *data&mask + div/2;
- 
+
+            *data = *data & mask + div / 2;
+            ++data;
+
             //-------------结束像素处理------------------------
- 
-            } //单行处理结束            
+
+          } //单行处理结束
       }
 }
 
@@ -236,14 +238,15 @@ void colorReduce6(Mat &image, int div=64) {
 		  uchar* data= image.ptr<uchar>(j);
 
           for (int i=0; i<nc; i++) {
- 
+
             //-------------开始处理每个像素-------------------
-                 
-            *data++= *data&mask + div/2;
- 
+
+            *data = *data & mask + div / 2;
+            ++data;
+
             //-------------结束像素处理------------------------
- 
-            } //单行处理结束                   
+
+          } //单行处理结束
       }
 }
 
@@ -271,16 +274,19 @@ void colorReduce7(Mat &image, int div=64) {
 		  uchar* data= image.ptr<uchar>(j);
 
           for (int i=0; i<nc; i++) {
- 
+
             //-------------开始处理每个像素-------------------
-                 
-            *data++= *data&mask + div/2;
-            *data++= *data&mask + div/2;
-            *data++= *data&mask + div/2;
- 
+
+            *data = *data & mask + div / 2;
+            ++data;
+            *data = *data & mask + div / 2;
+            ++data;
+            *data = *data & mask + div / 2;
+            ++data;
+
             //-------------结束像素处理------------------------
- 
-            } //单行处理结束                    
+
+          } //单行处理结束
       }
 }
 
