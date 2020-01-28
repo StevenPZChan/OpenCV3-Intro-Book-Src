@@ -1,0 +1,7 @@
+add_subdirectory(【89】SURF特征点检测/89_SURF特征点检测)
+add_subdirectory(【90】SURF特征描述/90_SURF特征描述)
+add_subdirectory(【91】使用FLANN进行特征点匹配/91_使用FLANN进行特征点匹配)
+add_subdirectory(【92】FLANN结合SURF进行关键点的描述和匹配/92_FLANN结合SURF进行关键点的描述和匹配)
+add_subdirectory(【93】SIFT配合暴力匹配进行关键点描述和提取/93_SIFT配合暴力匹配进行关键点描述和提取)
+add_subdirectory(【94】寻找已知物体/94_寻找已知物体)
+add_subdirectory(【95】ORB算法描述与匹配/95_ORB算法描述与匹配)

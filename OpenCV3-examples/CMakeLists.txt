@@ -18,3 +18,8 @@ add_subdirectory(src/【7】第七章)
 add_subdirectory(src/【8】第八章)
 add_subdirectory(src/【9】第九章)
 add_subdirectory(src/【10】第十章)
+
+get_target_property(XFEATURES2D opencv_xfeatures2d NAME)
+if (NOT ${XFEATURES2D} STREQUAL "XFEATURES2D-NOTFOUND")
+    add_subdirectory(src/【11】第十一章)
+endif ()
